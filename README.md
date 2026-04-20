@@ -4,7 +4,7 @@
 Space Colony is an Android application where the player manages a crew of space specialists. The objective is to recruit crew members, train them in the simulator to gain experience, and deploy them on cooperative turn-based missions against system-generated threats. The application focuses on resource management, tactical combat choices, managing crew recovery times in the Medbay, and tracking the individual career statistics of each veteran.
 
 **GitHub Repository:** https://github.com/Nyan-Sint-Wai/Space-Colony.git
-**Project Video Demonstration:** [INSERT YOUR YOUTUBE/DRIVE LINK HERE]
+**Project Video Demonstration:** https://lut-my.sharepoint.com/personal/nyan_wai_student_lut_fi/_layouts/15/stream.aspx?id=%2Fpersonal%2Fnyan%5Fwai%5Fstudent%5Flut%5Ffi%2FDocuments%2FSpaceColony%2Emp4&ga=1&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2Ef4df5eca%2D883d%2D471c%2D93d3%2D3e3381c55a92
 
 ---
 
