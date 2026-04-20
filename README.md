@@ -62,7 +62,15 @@ I am alone in this group and did 100% of work and contribution.
 
 ---
 
-## 7. UML Class Diagram
+## 7. AI Usage Disclaimer
+AI(Google Gemini) was utilized during the development of this project.
+Debugging & Syntax: Assisting in resolving Android Studio build errors, missing imports, and troubleshooting layout XML weight issues.
+Logic Refinement: Providing structural advice on implementing the logic.
+Documentation: Assisting in formating the structure and to improve language. 
+
+---
+
+## 8. UML Class Diagram
 *(Note: UI Classes such as Activities and Adapters have been excluded as per project instructions.)*
 
 ```mermaid
