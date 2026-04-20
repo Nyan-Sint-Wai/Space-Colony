@@ -60,8 +60,6 @@ public class QuartersActivity extends AppCompatActivity {
         List<String> movedNames = new ArrayList<>();
 
         for (CrewMember cm : quartersList) {
-            // Safety Check: We only move them if they are selected AND they are healthy!
-            // (Even though the checkbox is disabled, this guarantees Medbay crew stay put)
             if (cm.isSelectedForUI && cm.getLocation().equals("Quarters")) {
                 cm.setLocation(destination);
                 cm.isSelectedForUI = false; // Reset their checkbox for next time
@@ -70,7 +68,6 @@ public class QuartersActivity extends AppCompatActivity {
         }
 
         if (!movedNames.isEmpty()) {
-            // Note: Auto-saves were removed from here to respect your strict manual save system!
 
             // Pop up the specific names of the people who moved
             String namesString = TextUtils.join(", ", movedNames);

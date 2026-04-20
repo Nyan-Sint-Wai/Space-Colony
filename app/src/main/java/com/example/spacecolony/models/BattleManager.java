@@ -15,6 +15,9 @@ public class BattleManager {
         this.isCrewATurn = true;
         this.battleLog = new StringBuilder();
 
+        this.crewA.addMission();
+        this.crewB.addMission();
+
         battleLog.append("=== MISSION: Deep Space Operation ===\n");
         battleLog.append("--- Round ").append(roundCounter).append(" ---\n");
     }
@@ -30,9 +33,7 @@ public class BattleManager {
             return executeTurn(action);
         }
 
-        // ==========================================
         // 1. CREW ACTION PHASE
-        // ==========================================
         if (action == CrewBattleAction.ATTACK) {
             battleLog.append(activeCrew.getSpecialization()).append("(").append(activeCrew.getName()).append(") attacks ").append(threat.getName()).append("\n");
 
@@ -73,9 +74,7 @@ public class BattleManager {
             return battleLog.toString();
         }
 
-        // ==========================================
         // 3. THREAT RETALIATION PHASE
-        // ==========================================
         int defendBonus = (action == CrewBattleAction.DEFEND) ? 3 : 0;
         int threatDice = (int)(Math.random() * 4); // Threat also rolls a 0-3
         int threatTotalSkill = threat.getSkill() + threatDice;
@@ -97,9 +96,8 @@ public class BattleManager {
         battleLog.append(activeCrew.getSpecialization()).append("(").append(activeCrew.getName()).append(") energy: ")
                 .append(Math.max(0, activeCrew.getEnergy())).append("/").append(activeCrew.getMaxEnergy()).append("\n\n");
 
-        // ==========================================
+
         // 4. CLEANUP & ROUND MANAGEMENT
-        // ==========================================
         if (activeCrew.getEnergy() <= 0) {
             // THE MERCY RULE: Evacuate instead of Delete!
             battleLog.append("!!! CRITICAL: ").append(activeCrew.getName()).append(" incapacitated! Evacuating to Medbay... !!!\n");
@@ -112,12 +110,10 @@ public class BattleManager {
         if (isMissionOver() && !threat.isDefeated()) {
             battleLog.append("=== MISSION FAILED ===\nAll crew members evacuated. Mission Lost.\n");
 
-            // Track the failure and advance Medbay timers!
             CrewDatabase.getInstance().addLostMission();
             CrewDatabase.getInstance().processMedbayRecovery();
 
         } else {
-            // Advance round counter after both have acted
             if (!isCrewATurn) {
                 roundCounter++;
                 battleLog.append("--- Round ").append(roundCounter).append(" ---\n");
@@ -130,12 +126,15 @@ public class BattleManager {
 
     private void awardVictory() {
         if (crewA.getEnergy() > 0) {
-            crewA.train();
+            // NEW: Give raw XP and count the victory, without triggering a "training session"
+            crewA.setExperience(crewA.getExperience() + 1);
+            crewA.addVictory();
             battleLog.append(crewA.getSpecialization()).append("(").append(crewA.getName())
                     .append(") gains 1 experience point. (exp: ").append(crewA.getExperience()).append(")\n");
         }
         if (crewB.getEnergy() > 0) {
-            crewB.train();
+            crewB.setExperience(crewB.getExperience() + 1);
+            crewB.addVictory();
             battleLog.append(crewB.getSpecialization()).append("(").append(crewB.getName())
                     .append(") gains 1 experience point. (exp: ").append(crewB.getExperience()).append(")\n");
         }

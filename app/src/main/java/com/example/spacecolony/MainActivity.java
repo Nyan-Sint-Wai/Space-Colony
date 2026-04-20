@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Notice: The auto-load line that used to be here is completely gone!
 
         tvSummary = findViewById(R.id.tv_colony_summary);
 
@@ -53,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         updateSummary();
     }
 
-    // We refresh the summary every time we return to the home screen
+    // Refresh the summary every time we return to the home screen
     @Override
     protected void onResume() {
         super.onResume();

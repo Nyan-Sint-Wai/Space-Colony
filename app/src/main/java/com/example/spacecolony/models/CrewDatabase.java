@@ -13,7 +13,7 @@ public class CrewDatabase {
     private static CrewDatabase instance;
     private HashMap<Integer, CrewMember> roster;
     private int totalMissionsCompleted = 0;
-    private int totalMissionsLost = 0; // FIXED: Added missing variable declaration!
+    private int totalMissionsLost = 0;
 
     private CrewDatabase() {
         roster = new HashMap<>();
@@ -59,15 +59,12 @@ public class CrewDatabase {
     public void addCompletedMission() { totalMissionsCompleted++; }
     public int getTotalMissions() { return totalMissionsCompleted; }
 
-    // ==========================================
     // AUTOMATIC MEDBAY RECOVERY LOGIC
-    // ==========================================
     public void processMedbayRecovery() {
         for (CrewMember cm : roster.values()) {
             if (cm.getLocation().equals("Medbay")) {
                 cm.setRecoveryTime(cm.getRecoveryTime() - 1); // Tick down the clock
 
-                // If their time out is finished, automatically send them home!
                 if (cm.getRecoveryTime() <= 0) {
                     cm.setLocation("Quarters");
                     cm.restoreEnergy();
@@ -76,9 +73,7 @@ public class CrewDatabase {
         }
     }
 
-    // ==========================================
     // DATA STORAGE LOGIC
-    // ==========================================
     public void saveToFile(Context context) {
         SharedPreferences prefs = context.getSharedPreferences("SpaceColonyData", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();

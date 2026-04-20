@@ -1,12 +1,12 @@
 package com.example.spacecolony.models;
 
-import android.graphics.Color; // Added for Color.parseColor
-import android.graphics.PorterDuff; // Added for PorterDuff.Mode
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.ImageView; // Added for the Icon
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,11 +44,8 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.ViewHolder> {
         }
         holder.ivIcon.setImageResource(imageRes);
 
-        // ==========================================
         // INJURED CREW UI (Medbay / Time-out)
-        // ==========================================
         if (member.getLocation().equals("Medbay")) {
-            // Grey out the icon
             holder.ivIcon.setColorFilter(Color.parseColor("#80FF0000"), PorterDuff.Mode.SRC_ATOP);
 
             holder.tvNameRole.setText("✚ " + member.getName() + " [INJURED]");
@@ -63,11 +60,8 @@ public class CrewAdapter extends RecyclerView.Adapter<CrewAdapter.ViewHolder> {
 
             holder.itemView.setAlpha(0.5f);
         }
-        // ==========================================
         // HEALTHY CREW UI (Normal Duty)
-        // ==========================================
         else {
-            // Restore icon color
             holder.ivIcon.clearColorFilter();
 
             holder.tvNameRole.setText(member.getName() + " (" + member.getSpecialization() + ")");

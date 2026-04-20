@@ -3,7 +3,7 @@ package com.example.spacecolony;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView; // Added for the preview image
+import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +18,7 @@ import com.example.spacecolony.models.Soldier;
 
 public class RecruitActivity extends AppCompatActivity {
 
-    private ImageView ivPreview; // Declaration for the preview image
+    private ImageView ivPreview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,6 @@ public class RecruitActivity extends AppCompatActivity {
         rgRoles.check(R.id.rb_pilot);
         ivPreview.setImageResource(R.drawable.ic_pilot);
 
-        // 1. SETUP THE LISTENER TO CHANGE IMAGE ON SELECTION
         rgRoles.setOnCheckedChangeListener((group, checkedId) -> {
             int imageRes;
             if (checkedId == R.id.rb_pilot) {

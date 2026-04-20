@@ -50,7 +50,7 @@ public class SimulatorActivity extends AppCompatActivity {
             if (cm.isSelectedForUI) {
                 cm.train();
                 cm.isSelectedForUI = false;
-                trainedNames.add(cm.getName()); // Save their name!
+                trainedNames.add(cm.getName());
             }
         }
 
@@ -71,7 +71,7 @@ public class SimulatorActivity extends AppCompatActivity {
                 cm.setLocation("Quarters");
                 cm.restoreEnergy();
                 cm.isSelectedForUI = false;
-                movedNames.add(cm.getName()); // Save their name!
+                movedNames.add(cm.getName());
             }
         }
 

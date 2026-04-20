@@ -111,14 +111,13 @@ public class MissionControlActivity extends AppCompatActivity {
         // 2. Transform the UI into the "Return to Base" state
         btnDefend.setVisibility(View.GONE);
 
-        // We reuse the Attack button as the Exit button
+        // Reuse the Attack button as the Exit button
         btnAttack.setText("MISSION OVER - RETURN TO BASE");
         btnAttack.setBackgroundColor(android.graphics.Color.GRAY);
 
         // 3. Update the click listener so it closes the screen instead of attacking
         btnAttack.setOnClickListener(v -> finish());
 
-        // Optional: Scroll to the absolute bottom of the log to see "MISSION COMPLETE"
         final ScrollView scrollView = (ScrollView) tvLog.getParent();
         scrollView.post(() -> scrollView.fullScroll(View.FOCUS_DOWN));
     }
