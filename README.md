@@ -1,7 +1,7 @@
 # Space Colony - Android Management Game
 
 ## 1. General Project Description
-Space Colony is an Android application where the player manages a crew of space specialists. The objective is to recruit crew members, train them in the simulator to gain experience, and deploy them on cooperative turn-based missions against system-generated threats. The application focuses on resource management, tactical combat choices, and managing crew recovery times in the Medbay.
+Space Colony is an Android application where the player manages a crew of space specialists. The objective is to recruit crew members, train them in the simulator to gain experience, and deploy them on cooperative turn-based missions against system-generated threats. The application focuses on resource management, tactical combat choices, managing crew recovery times in the Medbay, and tracking the individual career statistics of each veteran.
 
 **GitHub Repository:** [INSERT YOUR GITHUB LINK HERE]
 **Project Video Demonstration:** [INSERT YOUR YOUTUBE/DRIVE LINK HERE]
@@ -9,23 +9,23 @@ Space Colony is an Android application where the player manages a crew of space 
 ---
 
 ## 2. Team Composition & Division of Work
-* **[YOUR NAME]**: 100% Contribution. Handled all UI design, object-oriented logic, Activity routing, data persistence via SharedPreferences/Gson, and the turn-based combat engine. 
+* **[YOUR NAME]**: 100% Contribution. Handled all UI design, object-oriented logic, Activity routing, data persistence via SharedPreferences/Gson, individual statistics tracking, and the turn-based combat engine. 
 *(Note: If you had partners, list them here and split the tasks up!)*
 
 ---
 
 ## 3. Application Use-Flow
-1. **Launch App:** The user starts at the Main Menu (Colony Overview), displaying current crew distribution and total mission statistics.
+1. **Launch App:** The user starts at the Main Menu (Colony Overview), displaying current crew distribution and total colony mission statistics.
 2. **Recruitment:** The user navigates to the Recruit screen to hire new crew members by entering a name and selecting a specialization (Pilot, Engineer, Medic, Scientist, Soldier). The UI provides a live preview of the character's icon and base stats.
-3. **Quarters:** Recruits start in Quarters. From here, the user can select healthy crew members to move them to either the Simulator or Mission Control.
-4. **Simulator (Training):** Users can train crew members. Training awards Experience Points (XP). Each point of XP permanently increases the crew member's Skill power for future missions.
+3. **Quarters:** Recruits start in Quarters. From here, the user can view each crew member's overall health, skill stats, and individual career record (Total Missions, Wins, and Training Sessions).
+4. **Simulator (Training):** Users can train crew members. Training awards Experience Points (XP) and increments their personal `trainingSessions` tracker. Each point of XP permanently increases the crew member's Skill power for future missions.
 5. **Mission Control (Combat):** The user selects exactly two healthy crew members to face a system-generated threat. 
    * Combat is turn-based. 
    * The user chooses between "Attack" (deals damage based on Skill + XP + Random Dice Roll) or "Tactical Defend" (Heals 2 Energy and boosts Resilience).
    * The threat retaliates after every crew action.
-6. **Post-Mission:** * **Victory:** Threat is defeated. Surviving crew gain XP and return to Quarters.
-   * **Defeat:** If a crew member's HP hits zero, they are evacuated to the Medbay. They lose their accumulated XP and receive a 2-mission "Time Out" penalty before they can be deployed again.
-7. **Saving/Loading:** The user manually saves their roster and mission statistics from the Main Menu.
+6. **Post-Mission:** * **Victory:** Threat is defeated. Surviving crew gain XP, increment their personal `missionsWon` tracker, and return to Quarters.
+   * **Defeat:** If a crew member's HP hits zero, they are evacuated to the Medbay. They lose their accumulated XP, miss out on the victory point, and receive a 2-mission "Time Out" penalty before they can be deployed again.
+7. **Saving/Loading:** The user manually saves their roster, individual career stats, and colony statistics from the Main Menu.
 
 ---
 
@@ -42,6 +42,7 @@ Space Colony is an Android application where the player manages a crew of space 
 4. **No Death / Medbay (+1):** Defeated crew members are not permanently deleted. They are evacuated to the Medbay, stripped of XP, and put on a 2-mission recovery timer.
 5. **Randomness in Missions (+1):** Implemented `Math.random()` to add variable dice-roll damage (0-3 bonus damage) to both crew and threat attacks.
 6. **Data Storage & Loading (+2):** Implemented a manual save/load system using `Gson` and `SharedPreferences` to persist the complex `HashMap` of the crew roster and mission statistics.
+7. **Statistics (+1):** Tracked individual performance (number of missions participated in, victories achieved, and training sessions completed) for each crew member, dynamically displayed in their stats readout.
 
 ---
 
