@@ -66,78 +66,127 @@ Space Colony is an Android application where the player manages a crew of space 
 
 ```mermaid
 classDiagram
+    class CrewBattleAction {
+        <<enumeration>>
+        ATTACK
+        DEFEND
+    }
+
     class CrewDatabase {
-        - instance: CrewDatabase
-        - roster: HashMap~Integer, CrewMember~
-        - totalMissionsCompleted: int
-        - totalMissionsLost: int
-        + getInstance(): CrewDatabase
-        + hireCrew(cm: CrewMember)
-        + getCrewByLocation(loc: String): List~CrewMember~
-        + processMedbayRecovery()
-        + saveToFile(context: Context)
-        + loadFromFile(context: Context)
+        -CrewDatabase instance$
+        -HashMap~Integer, CrewMember~ roster
+        -int totalMissionsCompleted
+        -int totalMissionsLost
+        -CrewDatabase()
+        +getInstance() : CrewDatabase$
+        +addLostMission() : void
+        +getLostMissions() : int
+        +hireCrew(cm: CrewMember) : void
+        +dismissCrew(id: int) : void
+        +getCrewList() : List~CrewMember~
+        +getCrewByLocation(loc: String) : List~CrewMember~
+        +addCompletedMission() : void
+        +getTotalMissions() : int
+        +processMedbayRecovery() : void
+        +saveToFile(context: Context) : void
+        +loadFromFile(context: Context) : void
     }
 
     class CrewMember {
-        # id: int
-        # name: String
-        # specialization: String
-        # skill: int
-        # resilience: int
-        # experience: int
-        # energy: int
-        # maxEnergy: int
-        # location: String
-        - recoveryTime: int
-        + act(): int
-        + defend(damage: int)
-        + restoreEnergy()
-        + train()
-        + getFormattedStats(): String
+        #int id
+        #String name
+        #String specialization
+        #int skill
+        #int resilience
+        #int experience
+        #int energy
+        #int maxEnergy
+        #String location
+        -int missionsParticipated
+        -int missionsWon
+        -int trainingSessions
+        +boolean isSelectedForUI
+        -int idCounter$
+        -int recoveryTime
+        +CrewMember()
+        +CrewMember(name: String, specialization: String, skill: int, resilience: int, maxEnergy: int)
+        +act() : int
+        +defend(damage: int) : void
+        +restoreEnergy() : void
+        +train() : void
+        +addMission() : void
+        +addVictory() : void
+        +getLocation() : String
+        +setLocation(loc: String) : void
+        +setEnergy(energy: int) : void
+        +getId() : int
+        +getName() : String
+        +getSpecialization() : String
+        +getEnergy() : int
+        +getMaxEnergy() : int
+        +getSkill() : int
+        +getExperience() : int
+        +getResilience() : int
+        +getRecoveryTime() : int
+        +setRecoveryTime(recoveryTime: int) : void
+        +setExperience(experience: int) : void
+        +getFormattedStats() : String
+        +updateIdCounter(highestIdLoaded: int) : void$
     }
 
     class Threat {
-        - name: String
-        - skill: int
-        - resilience: int
-        - energy: int
-        - maxEnergy: int
-        + attack(target: CrewMember)
-        + isDefeated(): boolean
+        -String name
+        -int skill
+        -int resilience
+        -int energy
+        -int maxEnergy
+        +Threat(name: String, completedMissions: int)
+        +act() : int
+        +defend(incomingDamage: int) : void
+        +isDefeated() : boolean
+        +getName() : String
+        +getEnergy() : int
+        +getMaxEnergy() : int
+        +getSkill() : int
+        +getResilience() : int
+        +setEnergy(energy: int) : void
     }
 
     class BattleManager {
-        - crewA: CrewMember
-        - crewB: CrewMember
-        - threat: Threat
-        - isCrewATurn: boolean
-        - roundCounter: int
-        - battleLog: StringBuilder
-        + executeTurn(action: CrewBattleAction): String
-        - awardVictory()
-        + isMissionOver(): boolean
+        -CrewMember crewA
+        -CrewMember crewB
+        -Threat threat
+        -boolean isCrewATurn
+        -int roundCounter
+        -StringBuilder battleLog
+        +BattleManager(a: CrewMember, b: CrewMember, t: Threat)
+        +executeTurn(action: CrewBattleAction) : String
+        -awardVictory() : void
+        +isMissionOver() : boolean
+        +getLog() : String
+        +isCrewATurn() : boolean
     }
 
     class Pilot {
-        + Pilot(name: String)
+        +Pilot(name: String)
     }
     class Engineer {
-        + Engineer(name: String)
+        +Engineer(name: String)
     }
     class Medic {
-        + Medic(name: String)
+        +Medic(name: String)
     }
     class Scientist {
-        + Scientist(name: String)
+        +Scientist(name: String)
     }
     class Soldier {
-        + Soldier(name: String)
+        +Soldier(name: String)
     }
 
     CrewDatabase "1" *-- "many" CrewMember : stores
     BattleManager o-- "2" CrewMember : uses
     BattleManager o-- "1" Threat : uses
+    BattleManager ..> CrewBattleAction : uses
     CrewMember <|-- Pilot
     CrewMember <|-- Engineer
     CrewMember <|-- Medic
