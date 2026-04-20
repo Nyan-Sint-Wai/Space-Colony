@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp"
+    android:background="#263238"
+    android:layout_marginBottom="8dp"
+    android:elevation="2dp"
+    android:gravity="center_vertical">
+
+    <CheckBox
+        android:id="@+id/cb_select_crew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:buttonTint="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/iv_crew_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="12dp">
+
+        <TextView
+            android:id="@+id/tv_crew_name_role"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:text="Name (Role)"/>
+
+        <TextView
+            android:id="@+id/tv_crew_stats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#CFD8DC"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:text="HP: 0/0 | Skill: 0 | Res: 0 | XP: 0"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#37474F"
+    android:fitsSystemWindows="true"> <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="RECRUIT NEW CREW"
+    android:textColor="#FFFFFF"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textAlignment="center"
+    android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/et_crew_name"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="Enter Name..."
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CFD8DC"
+        android:backgroundTint="#FFFFFF"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT SPECIALIZATION (BASE STATS):"
+        android:textColor="#CFD8DC"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <ImageView
+        android:id="@+id/iv_recruit_preview"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="Recruit Preview" />
+
+    <RadioGroup
+        android:id="@+id/rg_specializations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#263238"
+        android:padding="12dp"
+        android:layout_marginBottom="32dp">
+
+        <RadioButton
+            android:id="@+id/rb_pilot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilot: 5 Skill | 4 Res | 20 Energy"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_engineer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Engineer: 6 Skill | 3 Res | 19 Energy"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_medic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Medic: 7 Skill | 2 Res | 18 Energy"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_scientist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scientist: 8 Skill | 1 Res | 17 Energy"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_soldier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Soldier: 9 Skill | 0 Res | 16 Energy"
+            android:textColor="#FFFFFF"
+            android:padding="8dp"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_create_crew"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="RECRUIT SPECIALIST"
+        android:backgroundTint="#D32F2F"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btn_cancel_recruit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="CANCEL"
+        android:backgroundTint="#455A64"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>

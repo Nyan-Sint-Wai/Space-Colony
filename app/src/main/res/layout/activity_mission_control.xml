@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#37474F"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MISSION CONTROL"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_lobby_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btn_launch_mission"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="LAUNCH MISSION"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btn_move_to_quarters"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:text="TO QUARTERS"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_stats_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#263238"
+        android:padding="12dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_threat_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F44336"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Threat Details"
+            android:layout_marginBottom="8dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#455A64" android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tv_crew1_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:layout_marginBottom="4dp"
+            android:text="Crew A Details"/>
+
+        <TextView
+            android:id="@+id/tv_crew2_stats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="13sp"
+            android:fontFamily="monospace"
+            android:text="Crew B Details"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mission_lobby"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="12dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_combat_actions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+        <Button android:id="@+id/btn_attack" android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:text="ATTACK" android:backgroundTint="#D32F2F" android:layout_marginEnd="4dp"/>
+        <Button android:id="@+id/btn_defend" android:layout_width="0dp" android:layout_height="60dp" android:layout_weight="1" android:text="DEFEND" android:backgroundTint="#00796B" android:layout_marginStart="4dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_battle_log"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#1C1C1C"
+        android:padding="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"> <TextView
+        android:id="@+id/tv_battle_log"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#00FF00"
+        android:fontFamily="monospace"
+        android:textSize="14sp"
+        android:lineSpacingExtra="4dp"
+        android:text="System Online... Awaiting strike team."/>
+    </ScrollView>
+</LinearLayout>
