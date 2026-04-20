@@ -3,14 +3,14 @@
 ## 1. General Project Description
 Space Colony is an Android application where the player manages a crew of space specialists. The objective is to recruit crew members, train them in the simulator to gain experience, and deploy them on cooperative turn-based missions against system-generated threats. The application focuses on resource management, tactical combat choices, managing crew recovery times in the Medbay, and tracking the individual career statistics of each veteran.
 
-**GitHub Repository:** [INSERT YOUR GITHUB LINK HERE]
+**GitHub Repository:** https://github.com/Nyan-Sint-Wai/Space-Colony.git
 **Project Video Demonstration:** [INSERT YOUR YOUTUBE/DRIVE LINK HERE]
 
 ---
 
 ## 2. Team Composition & Division of Work
-* **[YOUR NAME]**: 100% Contribution. Handled all UI design, object-oriented logic, Activity routing, data persistence via SharedPreferences/Gson, individual statistics tracking, and the turn-based combat engine. 
-*(Note: If you had partners, list them here and split the tasks up!)*
+Team member - Nyan Sint Wai
+I am alone in this group and did 100% of work and contribution.
 
 ---
 
@@ -55,7 +55,7 @@ Space Colony is an Android application where the player manages a crew of space 
 ---
 
 ## 6. Installation Instructions
-1. Clone the repository: `git clone [YOUR GITHUB LINK]`
+1. Clone the repository: `git clone https://github.com/Nyan-Sint-Wai/Space-Colony.git`
 2. Open the project in Android Studio.
 3. Sync project with Gradle Files.
 4. Build and run the application on an Android Emulator (API 24+) or a physical Android device.
